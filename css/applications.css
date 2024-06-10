@@ -48,7 +48,7 @@ header {
 }
 
 .nav_links li a:hover {
-  color: #c03865;
+  color: #670420;
 }
 
 button {
@@ -64,7 +64,7 @@ button {
 }
 
 button:hover {
-  background-color: #c03865;
+  background-color: #670420;
 }
 
 .applications-list-container {
@@ -130,7 +130,7 @@ button:hover {
 
 .applications-list-container .details-btn {
   text-decoration: none;
-  border: 1px solid #c03865;
+  border: 1px solid #670420;
   color: #000;
   padding: 8px 16px;
   border-radius: 8px;
@@ -140,7 +140,7 @@ button:hover {
 }
 
 .applications-list-container .details-btn:hover {
-  background: #c03865;
+  background: #670420;
   color: #fff;
 }
 
