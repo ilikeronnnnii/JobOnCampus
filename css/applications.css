@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  color: #000000;
+}
+
+body {
+  padding: 0;
+  /* background-color: #f8f9fa; */
+}
+
+/* Applications Section */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%; /* Reduced padding */
+  background-color: #ffffff;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
+.nav_links {
+  list-style-type: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.nav_links li a:hover {
+  color: #c03865;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #000000;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: #c03865;
+}
+
+.applications-list-container {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.applications-list-container h2 {
+  font-size: 30px;
+  border-left: 4px solid #000000;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+.applications-list-container .applications {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.application img {
+  width: 50px; /* Adjust this value to make the image smaller */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px; /* Space between the image and the content */
+}
+
+.applications-list-container .application {
+  box-shadow: 0 4px 24px -8px rgba(2, 48, 71, 0.2);
+  padding: 24px;
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all 400ms ease;
+}
+
+.applications-list-container .application:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+.applications-list-container .application-status {
+  position: absolute;
+  top: 40px;
+  right: 24px;
+  color: #e63946;
+}
+
+.applications-list-container .job-title {
+  font-size: 20px;
+  padding: 10px 0;
+  margin: 0;
+  color: #000000;
+}
+
+.applications-list-container .details {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.8;
+  flex: 1;
+}
+
+.applications-list-container .details-btn {
+  text-decoration: none;
+  border: 1px solid #c03865;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+  transition: all 400ms ease;
+}
+
+.applications-list-container .details-btn:hover {
+  background: #c03865;
+  color: #fff;
+}
+
+@media (max-width: 940px) {
+  .applications-list-container .applications {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .applications-list-container .applications {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+.application-status.working {
+  color: #1bc3ed;
+}
+
+.application-status.rejected {
+  color: #ff0000;
+}
+
+.application-status.accepted {
+  color: #008000;
+}
+
+.application-status.pending {
+  color: #e6a235;
+}
+
+.application-status.past {
+  color: #62605c;
+}
+
+/*  Penutup Applications Section */
+
+/* Login Section */
+
+/* Penutup Login Section */
