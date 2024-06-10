@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("signInButton")
     .addEventListener("click", function (event) {
       event.preventDefault(); // Prevent the form from submitting
-      window.location.href = "applications.html"; // Redirect to the new HTML page
+      window.location.href = "careers.html"; // Redirect to the new HTML page
     });
 });

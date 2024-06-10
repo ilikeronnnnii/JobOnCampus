@@ -86,9 +86,9 @@ button:hover {
 }
 
 .application img {
-  width: 50px; /* Adjust this value to make the image smaller */
-  height: auto; /* Maintain aspect ratio */
-  margin-bottom: 10px; /* Space between the image and the content */
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 .applications-list-container .application {
