@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  color: #000000;
+}
+
+body {
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10%;
+  background-color: #ffffff;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
+.nav_links {
+  list-style-type: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav_links li a {
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: none;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.nav_links li a:hover {
+  color: #670420;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #000000;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: #670420;
+}
+
+/* Request Job Section */
+.request-job-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 0 4px 24px -8px rgba(2, 48, 71, 0.2);
+  border-radius: 16px;
+}
+
+.request-job-container h2 {
+  font-size: 30px;
+  border-left: 4px solid #000000;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+.request-job-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.request-job-container label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.request-job-container input,
+.request-job-container select,
+.request-job-container textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.request-job-container input[type="text"]::placeholder,
+.request-job-container input[type="text"]::-webkit-input-placeholder {
+  color: #999;
+}
+
+.request-job-container button {
+  align-self: flex-start;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .request-job-container {
+    padding: 15px;
+    margin: 20px;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
