@@ -30,6 +30,5 @@ if (isset($_POST["submit"])) {
     }else{
         setcookie("status", "error");
     }
-
 }
 ?>

@@ -11,14 +11,14 @@
 
         if($user){
             if(password_verify($password, $user["Password"])){
-                echo "Lepas";
                 header("Location: ../careers.php");
+                session_start();
+                $_SESSION["username"] = $user["Name"];
             }
         }else{
             echo "<div> email does not exist </div>";
         }
 
     }
-
-    session_start();
+  
 ?>
