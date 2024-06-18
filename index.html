@@ -16,7 +16,11 @@
   <body>
     <div class="container" id="container">
       <div class="form-container sign-up">
-        <form>
+        <form
+          action="scripts/registration.php"
+          method="post"
+          enctype="multipart/form-data"
+        >
           <h1>Create Account</h1>
           <div class="social-icons">
             <a href="#" class="icon"
@@ -29,16 +33,27 @@
             ></a>
           </div>
           <span>or use your email for registeration</span>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input type="text" placeholder="Name" name="Name" required />
+          <input type="email" placeholder="Email" name="Email" required />
+          <input
+            type="password"
+            placeholder="Password"
+            name="Password"
+            required
+          />
           <label for="resume-upload">Upload Resume</label>
-          <input type="file" id="resume-upload" />
-          <button>Sign Up</button>
+          <input
+            type="file"
+            id="resume-upload"
+            name="Resume"
+            accept=".pdf"
+            required
+          />
+          <button name="submit" type="submit">Sign Up</button>
         </form>
       </div>
       <div class="form-container sign-in">
-        <form>
+        <form action="scripts/login.php" method="post">
           <h1>Sign In</h1>
           <div class="social-icons">
             <a href="#" class="icon"
@@ -51,10 +66,10 @@
             ></a>
           </div>
           <span>or use your email password</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input type="email" placeholder="Email" name="Email" />
+          <input type="password" placeholder="Password" name="Password" />
           <a href="#">Forget Your Password?</a>
-          <button id="signInButton">Sign In</button>
+          <button name="login" type="submit">Sign In</button>
         </form>
       </div>
       <div class="toggle-container">
@@ -70,7 +85,7 @@
               The best gateway to connecting with valuable career opportunities
               right on campus.
             </p>
-            <button class="hidden" id="register">Sign Up</button>
+            <button name="submit" class="hidden" id="register">Sign Up</button>
           </div>
         </div>
       </div>
