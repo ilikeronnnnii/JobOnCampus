@@ -17,12 +17,12 @@
       <img class="logo" src="images/jobOnCampusBlack.png" alt="logo" />
       <nav>
         <ul class="nav_links">
-          <li><a href="careers.html">Careers</a></li>
-          <li><a href="applications.html">Applications</a></li>
-          <li><a href="request.html">Job Requests</a></li>
+          <li><a href="careers.php">Careers</a></li>
+          <li><a href="applications.php">Applications</a></li>
+          <li><a href="request.php">Job Requests</a></li>
         </ul>
       </nav>
-      <a class="cta" href="index.html"><button>Log Out</button></a>
+      <a class="cta" href="index.php"><button>Log Out</button></a>
     </header>
     <section>
       <div class="jobs-list-container">

@@ -12,11 +12,13 @@
         if($user){
             if(password_verify($password, $user["Password"])){
                 echo "Lepas";
-                header("Location: ../careers.html");
+                header("Location: ../careers.php");
             }
         }else{
             echo "<div> email does not exist </div>";
         }
 
     }
+
+    session_start();
 ?>

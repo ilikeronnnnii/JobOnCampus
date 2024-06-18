@@ -26,7 +26,7 @@ if (isset($_POST["submit"])) {
     if(mysqli_query($conn, $sql)){
         echo "File successfully uploaded";
         setcookie("status", "success");
-        header("Location: ../index.html");
+        header("Location: ../index.php");
     }else{
         setcookie("status", "error");
     }
