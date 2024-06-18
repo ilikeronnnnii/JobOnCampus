@@ -29,16 +29,20 @@ session_start();
       <a class="cta" href="index.php"><button>Log Out</button></a>
     </header>
     <section>
+      <div class="greetings">
+        <?php
+        if (isset($_SESSION["username"])) {
+          $username = ucfirst(htmlspecialchars($_SESSION["username"]));
+          echo "<h2>Welcome, " . $username . "!</h2>";
+        }
+        ?>    
+      </div>
       <div class="jobs-list-container">
         <h2>Trending Startups Company</h2>
         <div class="jobs">
-          <div class="job">
+          <div class="job" id="job1">
             <div class="job-header">
-              <img
-                src="images/hyundai.png"
-                alt="Hyundai Logo"
-                class="company-logo"
-              />
+              <img src="images/hyundai.png" alt="Hyundai Logo" class="company-logo" />
               <div class="company-info">
                 <h3 class="company-title">Hyundai</h3>
                 <p class="supervision">51-200 Employees</p>
@@ -56,9 +60,9 @@ session_start();
             </div>
           </div>
 
-          <div class="job">
+          <div class="job" id="job2">
             <div class="job-header">
-              <img src="images/youtube.png" alt="" class="company-logo" />
+              <img src="images/youtube.png" alt="Youtube Logo" class="company-logo" />
               <div class="company-info">
                 <h3 class="company-title">Youtube</h3>
                 <p class="supervision">3 Employees</p>
@@ -75,9 +79,9 @@ session_start();
             </div>
           </div>
 
-          <div class="job">
+          <div class="job" id="job3">
             <div class="job-header">
-              <img src="images/namco.png" alt="" class="company-logo" />
+              <img src="images/namco.png" alt="Namco Logo" class="company-logo" />
               <div class="company-info">
                 <h3 class="company-title">Namco</h3>
                 <p class="supervision">3 Employees</p>
@@ -107,5 +111,7 @@ session_start();
         </ul>
       </div>
     </div>
+
+    <script src="script3.js"></script>
   </body>
 </html>
