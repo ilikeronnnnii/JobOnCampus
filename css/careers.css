@@ -318,7 +318,7 @@ button:hover {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: #ffffff;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -341,3 +341,6 @@ button:hover {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* table */
+
