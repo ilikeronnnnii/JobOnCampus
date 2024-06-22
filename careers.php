@@ -8,6 +8,7 @@ session_start();
 <head>
   <link rel="stylesheet" href="css/careers.css" />
   <link rel="shortcut icon" type="x-icon" href="images/tab.png" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <meta charset="UTF-8" />
@@ -105,150 +106,171 @@ session_start();
     <div class="modal-content">
       <span class="close">&times;</span>
       <main class="table" id="customers_table">
-        <section class="table_header">
-          <h2>Job Positions at <span id="companyName"></span></h2>
-          <div class="input-group">
-            <input type="search" placeholder="Search Jobs">
-            <img src="/images/coding.png">
-          </div>
+        <section class="table__header">
+            <h2>Job Positions at <span id="companyName"></span></h2>
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                <i class='bx bx-search-alt'></i>
+            </div>
+
         </section>
-        <section class="table_body">
-          <table>
-            <thead>
-              <tr>
-                <th>Positions</th>
-                <th>Location</th>
-                <th>Salary</th>
-                <th>Job Type</th>
-                <th>Application Deadline</th>
-                <th>Apply</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  Software Engineer
-                </td>
-                <td>
-                  N28A - BK1
-                </td>
-                <td>
-                  RM12 per hour
-                </td>
-                <td>
-                  Half-Time
-                </td>
-                <td>
-                  9th June, 2024
-                </td>
-                <td>
-                  Button
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Software Engineer
-                </td>
-                <td>
-                  N28A - BK1
-                </td>
-                <td>
-                  RM12 per hour
-                </td>
-                <td>
-                  Half-Time
-                </td>
-                <td>
-                  9th June, 2024
-                </td>
-                <td>
-                  Button
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Software Engineer
-                </td>
-                <td>
-                  N28A - BK1
-                </td>
-                <td>
-                  RM12 per hour
-                </td>
-                <td>
-                  Half-Time
-                </td>
-                <td>
-                  9th June, 2024
-                </td>
-                <td>
-                  Button
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Software Engineer
-                </td>
-                <td>
-                  N28A - BK1
-                </td>
-                <td>
-                  RM12 per hour
-                </td>
-                <td>
-                  Half-Time
-                </td>
-                <td>
-                  9th June, 2024
-                </td>
-                <td>
-                  Button
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Software Engineer
-                </td>
-                <td>
-                  N28A - BK1
-                </td>
-                <td>
-                  RM12 per hour
-                </td>
-                <td>
-                  Half-Time
-                </td>
-                <td>
-                  9th June, 2024
-                </td>
-                <td>
-                  Button
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Software Engineer
-                </td>
-                <td>
-                  N28A - BK1
-                </td>
-                <td>
-                  RM12 per hour
-                </td>
-                <td>
-                  Half-Time
-                </td>
-                <td>
-                  9th June, 2024
-                </td>
-                <td>
-                  Button
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Position <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Location <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Salary <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Job Type <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Application Deadline<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Apply <span class="icon-arrow">&UpArrow;</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Software Engineer
+                        </td>
+                        <td>
+                            N28A - BK1
+                        </td>
+                        <td>
+                            RM12 per hour
+                        </td>
+                        <td>
+                            Half-Time
+                        </td>
+                        <td>
+                            9th June, 2024
+                        </td>
+                        <td>
+                            <p class="status apply">Button</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Software Engineer
+                        </td>
+                        <td>
+                            N28A - BK1
+                        </td>
+                        <td>
+                            RM12 per hour
+                        </td>
+                        <td>
+                            Half-Time
+                        </td>
+                        <td>
+                            9th June, 2024
+                        </td>
+                        <td>
+                            <p class="status apply">Button</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Software Engineer
+                        </td>
+                        <td>
+                            N28A - BK1
+                        </td>
+                        <td>
+                            RM12 per hour
+                        </td>
+                        <td>
+                            Half-Time
+                        </td>
+                        <td>
+                            9th June, 2024
+                        </td>
+                        <td>
+                            <p class="status apply">Button</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Software Engineer
+                        </td>
+                        <td>
+                            N28A - BK1
+                        </td>
+                        <td>
+                            RM12 per hour
+                        </td>
+                        <td>
+                            Half-Time
+                        </td>
+                        <td>
+                            9th June, 2024
+                        </td>
+                        <td>
+                            <p class="status apply">Button</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Software Engineer
+                        </td>
+                        <td>
+                            N28A - BK1
+                        </td>
+                        <td>
+                            RM12 per hour
+                        </td>
+                        <td>
+                            Half-Time
+                        </td>
+                        <td>
+                            9th June, 2024
+                        </td>
+                        <td>
+                            <p class="status apply">Button</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Software Engineer
+                        </td>
+                        <td>
+                            N28A - BK1
+                        </td>
+                        <td>
+                            RM12 per hour
+                        </td>
+                        <td>
+                            Half-Time
+                        </td>
+                        <td>
+                            9th June, 2024
+                        </td>
+                        <td>
+                            <p class="status apply">Button</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Electrical Engineer
+                        </td>
+                        <td>
+                            N28A - BK1
+                        </td>
+                        <td>
+                            RM12 per hour
+                        </td>
+                        <td>
+                            Half-Time
+                        </td>
+                        <td>
+                            9th June, 2024
+                        </td>
+                        <td>
+                            <p class="status apply">Button</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
-      </main>
+    </main>
     </div>
   </div>
 
