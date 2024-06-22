@@ -114,7 +114,7 @@ session_start();
         </section>
         <section class="table_body">
           <table>
-            <th>
+            <thead>
               <tr>
                 <th>Positions</th>
                 <th>Location</th>
@@ -123,8 +123,88 @@ session_start();
                 <th>Application Deadline</th>
                 <th>Apply</th>
               </tr>
-            </th>
+            </thead>
             <tbody>
+              <tr>
+                <td>
+                  Software Engineer
+                </td>
+                <td>
+                  N28A - BK1
+                </td>
+                <td>
+                  RM12 per hour
+                </td>
+                <td>
+                  Half-Time
+                </td>
+                <td>
+                  9th June, 2024
+                </td>
+                <td>
+                  Button
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Software Engineer
+                </td>
+                <td>
+                  N28A - BK1
+                </td>
+                <td>
+                  RM12 per hour
+                </td>
+                <td>
+                  Half-Time
+                </td>
+                <td>
+                  9th June, 2024
+                </td>
+                <td>
+                  Button
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Software Engineer
+                </td>
+                <td>
+                  N28A - BK1
+                </td>
+                <td>
+                  RM12 per hour
+                </td>
+                <td>
+                  Half-Time
+                </td>
+                <td>
+                  9th June, 2024
+                </td>
+                <td>
+                  Button
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Software Engineer
+                </td>
+                <td>
+                  N28A - BK1
+                </td>
+                <td>
+                  RM12 per hour
+                </td>
+                <td>
+                  Half-Time
+                </td>
+                <td>
+                  9th June, 2024
+                </td>
+                <td>
+                  Button
+                </td>
+              </tr>
               <tr>
                 <td>
                   Software Engineer
