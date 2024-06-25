@@ -1,24 +1,35 @@
 <?php
-    if (isset($_POST["login"])){
-        $email = $_POST["Email"];
-        $password = $_POST["Password"];
+session_start();
 
-        require_once "database.php";
+if (isset($_POST["login"])) {
+    $email = $_POST["Email"];
+    $password = $_POST["Password"];
 
-        $sql = "SELECT * FROM user where email = '$email'";
-        $result = mysqli_query($conn, $sql);
-        $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    require_once "database.php";
 
-        if($user){
-            if(password_verify($password, $user["Password"])){
-                header("Location: ../careers.php");
-                session_start();
-                $_SESSION["username"] = $user["Name"];
-            }
-        }else{
-            echo "<div> email does not exist </div>";
+    // Use prepared statements to prevent SQL injection
+    $sql = "SELECT * FROM user WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    if ($user) {
+        if (password_verify($password, $user["Password"])) {
+            // Set the userID and username in the session
+            $_SESSION["userID"] = $user["UserID"];
+            $_SESSION["username"] = $user["Name"];
+            header("Location: ../careers.php");
+            exit(); // Ensure no further code is executed
+        } else {
+            echo "<div>Incorrect password.</div>";
         }
-
+    } else {
+        echo "<div>Email does not exist.</div>";
     }
-  
+
+    $stmt->close();
+    $conn->close();
+}
 ?>

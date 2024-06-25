@@ -99,7 +99,7 @@ $conn->close();
                     <div class="job-deadline">
                         <?php echo date('Y-m-d', strtotime($job['deadline'])); ?>
                     </div>
-                    <div class="job-apply"><a href="apply.php?jobID=<?php echo $job['jobID']; ?>"><i
+                    <div class="job-apply"><a href="scripts/apply.php?jobID=<?php echo $job['jobID']; ?>"><i
                                 class="fa-solid fa-briefcase"></i></a>
                     </div>
                 </div>
