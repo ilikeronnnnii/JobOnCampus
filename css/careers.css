@@ -319,7 +319,7 @@ button:hover {
 
 .modal-content {
   background-color: #ffffff;
-  margin: 15% auto;
+  margin: 6% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
@@ -384,7 +384,7 @@ main.table{
 }
 
 .table__header .input-group:hover {
-  width: 45%;
+  width: 40%;
   background-color: #fff8;
   box-shadow: 0 .1rem .4rem #0002;
 }
