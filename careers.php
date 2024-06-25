@@ -96,8 +96,12 @@ $conn->close();
                     <div class="job-position"><?php echo $job['position']; ?></div>
                     <div class="job-location"><?php echo $job['location']; ?></div>
                     <div class="job-salary">RM<?php echo $job['salary']; ?> per hour</div>
-                    <div class="job-deadline"><?php echo date('Y-m-d', strtotime($job['deadline'])); ?></div>
-                    <div class="job-apply"><a href="apply.php?jobID=<?php echo $job['jobID']; ?>">Apply</a></div>
+                    <div class="job-deadline">
+                        <?php echo date('Y-m-d', strtotime($job['deadline'])); ?>
+                    </div>
+                    <div class="job-apply"><a href="apply.php?jobID=<?php echo $job['jobID']; ?>"><i
+                                class="fa-solid fa-briefcase"></i></a>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
@@ -124,7 +128,7 @@ $conn->close();
                                 <th> Salary <span class="icon-arrow">&UpArrow;</span></th>
                                 <th> Job Type <span class="icon-arrow">&UpArrow;</span></th>
                                 <th> Application Deadline<span class="icon-arrow">&UpArrow;</span></th>
-                                <th> Apply <span class="icon-arrow">&UpArrow;</span></th>
+                                <th> Apply </th>
                             </tr>
                         </thead>
                         <tbody id="jobList">
@@ -159,12 +163,12 @@ $conn->close();
 
                     jobList.innerHTML += `
      <tr>
-       <td>${position}</td>
-       <td>${location}</td>
-       <td>${salary}</td>
-       <td>Part-Time</td>
-       <td>${deadline}</td>
-       <td>${apply}</td>
+      <td style="vertical-align:middle; text-align: left;">${position}</td>
+       <td style="vertical-align:middle; text-align: left;">${location}</td>
+       <td style="vertical-align:middle; text-align: left;">${salary}</td>
+       <td style="vertical-align:middle; text-align: left;">Part-Time</td>
+       <td style="vertical-align:middle; text-align: left;">Apply before - ${deadline}</td>
+       <td style="vertical-align:middle; text-align: center;">${apply}</td>
      </tr>`;
                 });
 
