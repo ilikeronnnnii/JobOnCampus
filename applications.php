@@ -25,6 +25,8 @@ if ($result->num_rows > 0) {
   }
 }
 
+$numApplications = count($applications);
+
 $stmt->close();
 $conn->close();
 ?>
@@ -54,7 +56,7 @@ $conn->close();
   </header>
   <section>
     <div class="applications-list-container">
-      <h2>5 Applications History</h2>
+      <h2><?php echo $numApplications; ?> Applications History</h2>
       <div class="applications">
         <?php foreach ($applications as $application): ?>
           <div class="application">
@@ -64,7 +66,9 @@ $conn->close();
             <div class="details">
               Responsible to find bugs, in UTM Website, together with researching a couple of new ransomware.
             </div>
-            <a href="#" class="details-btn">More Details</a>
+            <?php if ($application['status'] === 'accepted'): ?>
+              <a href="#" class="details-btn">More Details</a>
+            <?php endif; ?>
             <span class="application-status <?php echo htmlspecialchars($application['status']); ?>">
               <?php echo ucfirst(htmlspecialchars($application['status'])); ?>
             </span>

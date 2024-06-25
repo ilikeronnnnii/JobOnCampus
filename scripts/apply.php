@@ -31,9 +31,10 @@ if ($resultCheck->num_rows > 0) {
     $message = "You have already applied for this job.";
 } else {
     // Insert a new application record
-    $sqlInsert = "INSERT INTO application (userID, jobID, status) VALUES (?, ?, 'pending')";
+    $dateApplied = date("Y-m-d H:i:s"); // Get the current date and time
+    $sqlInsert = "INSERT INTO application (userID, jobID, status, dateApplied) VALUES (?, ?, 'pending', ?)";
     $stmtInsert = $conn->prepare($sqlInsert);
-    $stmtInsert->bind_param("ii", $userID, $jobID);
+    $stmtInsert->bind_param("iis", $userID, $jobID, $dateApplied);
 
     if ($stmtInsert->execute()) {
         header("Location: http://localhost/jobOnCampus/applications.php");
