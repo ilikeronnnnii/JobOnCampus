@@ -120,7 +120,7 @@ $conn->close();
                                 <p class="supervision"><?php echo $faculty['employees']; ?> Employees</p>
                             </div>
                         </div>
-                        <div class="details">Various part-time positions for students</div>
+                        <div class="details"><?php echo $faculty['description']; ?></div>
                         <div class="positions">
                             <span>View <?php echo isset($faculty['jobCount']) ? $faculty['jobCount'] : 0; ?>
                                 positions</span>

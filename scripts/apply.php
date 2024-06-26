@@ -4,7 +4,7 @@ session_start();
 
 // Check if user is logged in
 if (!isset($_SESSION['userID'])) {
-    header("Location: http://localhost/jobOnCampus/index.php"); // Redirect to login page if not logged in
+    header("Location: ../index.php"); // Redirect to login page if not logged in
     exit();
 }
 
@@ -12,7 +12,7 @@ if (!isset($_SESSION['userID'])) {
 if (isset($_GET['jobID'])) {
     $jobID = intval($_GET['jobID']);
 } else {
-    header("Location: careers.php"); // Redirect to careers page if no job ID is provided
+    header("Location: ../careers.php"); // Redirect to careers page if no job ID is provided
     exit();
 }
 
@@ -37,7 +37,7 @@ if ($resultCheck->num_rows > 0) {
     $stmtInsert->bind_param("iis", $userID, $jobID, $dateApplied);
 
     if ($stmtInsert->execute()) {
-        header("Location: http://localhost/jobOnCampus/applications.php");
+        header("Location: ../applications.php");
     }
 }
 

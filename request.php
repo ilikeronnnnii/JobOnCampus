@@ -71,7 +71,7 @@ session_start();
   <main>
     <section class="request-job-container">
       <h2>Request a Job</h2>
-      <form id="job-request-form" action="submit_request.php" method="post">
+      <form id="job-request-form" action="scripts/submit_request.php" method="post">
         <div class="form-group">
           <label for="job-title">Job Title</label>
           <input list="job-titles" id="job-title" name="job_title" placeholder="Type to search..." required />
@@ -84,14 +84,13 @@ session_start();
         </div>
 
         <div class="form-group">
-          <label for="education">Level of Education</label>
+          <label for="faculty">Faculty</label>
           <select id="education" name="education" required>
-            <option value="spm">SPM</option>
-            <option value="diploma">Diploma</option>
-            <option value="degree">Degree</option>
+            <option value="computing">Computing</option>
+            <option value="management">Management</option>
+            <option value="science">Science</option>
+            <option value="mechanical">Mechanical Engineering</option>
           </select>
-          <input type="text" id="specific-degree" name="specific_degree"
-            placeholder="Specify level of education (e.g., Bachelor's in Computer Science)" />
         </div>
 
         <div class="form-group">
@@ -104,15 +103,6 @@ session_start();
           <label for="certifications">Certifications</label>
           <input type="text" id="certifications" name="certifications"
             placeholder="List any certifications (e.g., AWS Cloud Security, CompTia Security+)" />
-        </div>
-
-        <div class="form-group">
-          <label for="job-type">Job Type</label>
-          <select id="job-type" name="job_type" required>
-            <option value="fulltime">Full-time</option>
-            <option value="parttime">Part-time</option>
-            <option value="contract">Contract</option>
-          </select>
         </div>
 
         <button type="submit">Submit Request</button>
