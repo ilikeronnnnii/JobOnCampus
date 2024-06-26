@@ -1,11 +1,11 @@
 <?php
-$hostName = "127.0.0.1:3307";
-$dbUser = "root";
+$hostName = "localhost";
+$dbUser = "joboncampus_aan";
 $dbPassword = "";
-$dbName = "joboncampus";
+$dbName = "joboncampus_joboncampus";
 $conn = mysqli_connect($hostName, $dbUser, $dbPassword, $dbName);
 
-if(!$conn){
+if (!$conn) {
     die("Something went wrong!");
 }
 ?>
