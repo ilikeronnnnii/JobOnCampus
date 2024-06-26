@@ -31,7 +31,6 @@ if ($resultJobs->num_rows > 0) {
 
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,19 +42,61 @@ $conn->close();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JobOnCampus</title>
+    <style>
+        /* Modal Styling */
+        .modal-alert {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-alert-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-alert-content h2 {
+            margin-top: 0;
+        }
+
+        .modal-alert-content button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <img class="logo" src="images/jobOnCampusBlack.png" alt="logo" />
+        <a href="home.php">
+            <img class="logo" src="images/jobOnCampusBlack.png" alt="logo" /></a>
         <nav>
             <ul class="nav_links">
                 <li><a href="careers.php">Careers</a></li>
-                <li><a href="applications.php">Applications</a></li>
+                <?php if (isset($_SESSION['userID'])): ?>
+                    <li><a href="applications.php">Applications</a></li>
+                <?php endif; ?>
                 <li><a href="request.php">Job Requests</a></li>
             </ul>
         </nav>
-        <a class="cta" href="index.php"><button>Log Out</button></a>
+        <?php if (isset($_SESSION['userID'])): ?>
+            <a class="cta" href="scripts/logout.php"><button>Log Out</button></a>
+        <?php else: ?>
+            <a class="cta" href="index.php"><button>Log In</button></a>
+        <?php endif; ?>
     </header>
     <section>
         <div class="greetings">
@@ -107,7 +148,7 @@ $conn->close();
         </div>
     </section>
 
-    <!-- Modal -->
+    <!-- Modal for Jobs -->
     <div id="jobModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -138,13 +179,32 @@ $conn->close();
             </main>
         </div>
     </div>
+
+    <!-- Modal for Login Alert -->
+    <div id="alertModal" class="modal-alert">
+        <div class="modal-alert-content">
+            <h2>Login Required</h2>
+            <p>You need to log in to view job positions.</p>
+            <button id="alertClose">OK</button>
+        </div>
+    </div>
+
     <script>
         var modal = document.getElementById("jobModal");
+        var alertModal = document.getElementById("alertModal");
         var span = document.getElementsByClassName("close")[0];
+        var alertCloseBtn = document.getElementById("alertClose");
+
+        var isLoggedIn = <?php echo isset($_SESSION['userID']) ? 'true' : 'false'; ?>;
 
         var jobs = document.querySelectorAll(".job");
         jobs.forEach(function (job) {
-            job.addEventListener("click", function () {
+            job.addEventListener("click", function (e) {
+                if (!isLoggedIn) {
+                    e.preventDefault();
+                    alertModal.style.display = "block";
+                    return;
+                }
                 var facultyID = job.getAttribute("data-facultyid");
                 var companyName = job.querySelector(".company-title").textContent;
                 document.getElementById("facultyName").textContent = companyName;
@@ -187,6 +247,13 @@ $conn->close();
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+            if (event.target == alertModal) {
+                alertModal.style.display = "none";
+            }
+        };
+
+        alertCloseBtn.onclick = function () {
+            alertModal.style.display = "none";
         };
 
         function initializeSearchAndSort() {

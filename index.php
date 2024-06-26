@@ -1,5 +1,42 @@
 <?php
 session_start();
+
+$emailError = $passwordError = "";
+$emailClass = $passwordClass = "";
+
+if (isset($_POST["login"])) {
+  $email = $_POST["Email"];
+  $password = $_POST["Password"];
+
+  require_once "scripts/database.php";
+
+  // Use prepared statements to prevent SQL injection
+  $sql = "SELECT * FROM user WHERE email = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $user = $result->fetch_assoc();
+
+  if ($user) {
+    if (password_verify($password, $user["Password"])) {
+      // Set the userID and username in the session
+      $_SESSION["userID"] = $user["UserID"];
+      $_SESSION["username"] = $user["Name"];
+      header("Location: careers.php");
+      exit(); // Ensure no further code is executed
+    } else {
+      $passwordError = "Incorrect password.";
+      $passwordClass = "input-error";
+    }
+  } else {
+    $emailError = "Email does not exist.";
+    $emailClass = "input-error";
+  }
+
+  $stmt->close();
+  $conn->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +45,6 @@ session_start();
 <head>
   <meta charset="UTF-8" />
   <link rel="shortcut icon" type="x-icon" href="images/tab.png" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <link rel="stylesheet" href="css/index.css" />
@@ -26,7 +62,7 @@ session_start();
           <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
           <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
-        <span>or use your email for registeration</span>
+        <span>or use your email for registration</span>
         <input type="text" placeholder="Name" name="Name" required />
         <input type="email" placeholder="Email" name="Email" required />
         <input type="password" placeholder="Password" name="Password" required />
@@ -36,7 +72,7 @@ session_start();
       </form>
     </div>
     <div class="form-container sign-in">
-      <form action="scripts/login.php" method="post">
+      <form action="index.php" method="post">
         <h1>Sign In</h1>
         <div class="social-icons">
           <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -45,8 +81,14 @@ session_start();
           <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
         </div>
         <span>or use your email password</span>
-        <input type="email" placeholder="Email" name="Email" />
-        <input type="password" placeholder="Password" name="Password" />
+        <input type="email" class="<?php echo !empty($emailClass) ? $emailClass : ''; ?>" placeholder="Email"
+          name="Email" required />
+        <?php if ($emailError)
+          echo "<div class='error-message'>$emailError</div>"; ?>
+        <input type="password" class="<?php echo !empty($passwordClass) ? $passwordClass : ''; ?>"
+          placeholder="Password" name="Password" required />
+        <?php if ($passwordError)
+          echo "<div class='error-message'>$passwordError</div>"; ?>
         <a href="#">Forget Your Password?</a>
         <button name="login" type="submit">Sign In</button>
       </form>

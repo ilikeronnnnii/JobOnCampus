@@ -9,10 +9,11 @@ require_once "scripts/database.php";
 
 // Fetch applications data for the logged-in user
 $userID = $_SESSION['userID'];
-$sql = "SELECT a.*, j.position, j.location, j.salary, j.deadline 
-        FROM application a
-        JOIN jobs j ON a.jobID = j.jobID
-        WHERE a.userID = ?";
+$sql = "SELECT a.*, j.position, j.location, j.salary, j.deadline, f.facultyName
+FROM application a
+JOIN jobs j ON a.jobID = j.jobID
+JOIN faculty f ON j.facultyID = f.facultyID
+WHERE a.userID = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $userID);
 $stmt->execute();
@@ -30,7 +31,6 @@ $numApplications = count($applications);
 $stmt->close();
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,15 +44,26 @@ $conn->close();
 
 <body>
   <header>
-    <img class="logo" src="images/jobOnCampusBlack.png" alt="logo" />
+    <a href="home.php">
+      <img class="logo" src="images/jobOnCampusBlack.png" alt="logo" /></a>
     <nav>
       <ul class="nav_links">
-        <li><a href="careers.php">Careers</a></li>
-        <li><a href="applications.php">Applications</a></li>
-        <li><a href="request.php">Job Requests</a></li>
+        <nav>
+          <ul class="nav_links">
+            <li><a href="careers.php">Careers</a></li>
+            <?php if (isset($_SESSION['userID'])): ?>
+              <li><a href="applications.php">Applications</a></li>
+            <?php endif; ?>
+            <li><a href="request.php">Job Requests</a></li>
+          </ul>
+        </nav>
       </ul>
     </nav>
-    <a class="cta" href="index.php"><button>Log Out</button></a>
+    <?php if (isset($_SESSION['userID'])): ?>
+      <a class="cta" href="scripts/logout.php"><button>Log Out</button></a>
+    <?php else: ?>
+      <a class="cta" href="index.php"><button>Log In</button></a>
+    <?php endif; ?>
   </header>
   <section>
     <div class="applications-list-container">
@@ -60,9 +71,14 @@ $conn->close();
       <div class="applications">
         <?php foreach ($applications as $application): ?>
           <div class="application">
-            <img src="images/coding.png" alt="" />
-            <h3 class="job-title"><?php echo htmlspecialchars($application['position']); ?></h3>
-            <h4 class="supervision">Supervised by Dr. Analiza</h4>
+            <div class="job-header">
+              <img src="images/<?php echo strtolower(str_replace(' ', '', $application['facultyName'])); ?>.png"
+                alt="<?php echo htmlspecialchars($application['facultyName']); ?> Logo" class="company-logo" />
+              <h3 class="job-title"><?php echo htmlspecialchars($application['position']); ?></h3>
+              <div class="company-info">
+                <p class="supervision">Supervised by Dr. Analiza</p>
+              </div>
+            </div>
             <div class="details">
               Responsible to find bugs, in UTM Website, together with researching a couple of new ransomware.
             </div>
@@ -75,6 +91,7 @@ $conn->close();
           </div>
         <?php endforeach; ?>
       </div>
+    </div>
   </section>
 </body>
 
